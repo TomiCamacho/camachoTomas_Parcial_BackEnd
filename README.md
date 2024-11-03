@@ -113,4 +113,4 @@ JDBC: jdbc:h2:mem:./testdb
 
 ## Pruebas con JMeter y Diagramas de Secuencia
 
-Estos documentos están disponibles aquí: [Otros documentos]()
+Estos documentos están disponibles aquí: [Otros documentos](./Camacho%20Tomas%20-%20Parcial%20Back.pdf)
