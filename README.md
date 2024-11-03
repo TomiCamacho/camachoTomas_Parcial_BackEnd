@@ -20,7 +20,7 @@ Magneto necesita un programa que reciba secuencias de ADN (matrices cuadradas co
 
 ## Instrucciones
 
-**1)** Para utilizar la aplicación utilizaremos algún programa de peticiones (como Postman) utilizando el deploy obtenido con Render: https://camachotomas-parcial-backend.onrender.com. <br/>
+**1)** Para utilizar la aplicación podemos usar algún programa de peticiones (como Postman) utilizando el deploy obtenido con Render: https://camachotomas-parcial-backend.onrender.com. <br/>
 
 **2)** Agregaremos el path correspondiente a la petición que se quiera hacer: <br/>
 
@@ -112,3 +112,5 @@ JDBC: jdbc:h2:mem:./testdb
 
 
 ## Pruebas con JMeter y Diagramas de Secuencia
+
+Estos documentos están disponibles aquí: [Otros documentos]()
