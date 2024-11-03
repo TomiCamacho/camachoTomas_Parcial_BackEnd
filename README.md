@@ -1,90 +1,114 @@
-# Parcial Magneto
+# PARCIAL Back-End - Desarrollo de Software <br/> Tomás Camacho | 3K09
 
 ## Introduccion
-Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra los X-Mens.
 
-Te ha contratado a ti para que desarrolles un proyecto que detecte si un humano es mutante basándose en su secuencia de ADN.
+Para la materia de Desarrollo de Software, se nos ha pedido, a modo de parcial, cumplir la consigna de la entrevista tecnica sobre Magneto.
 
-Para eso te ha pedido crear un programa con un método o función con la siguiente firma:
+Magneto necesita un programa que reciba secuencias de ADN (matrices cuadradas con las letras 'ATGC') y determine si es mutante o no.
 
-**isMutant(String[] dna)**
+**Sabrás si un humano es mutante, si encuentras más de una secuencia de cuatro letras iguales, de forma oblicua, horizontal o vertical.** <br/>
 
-## Funcionamiento
 
-Se recibirá como parámetro un array de Strings que representan cada fila de una tabla de (6x6) con la secuencia del ADN. Las letras de los Strings solo pueden ser: (A,T,C,G), las cuales representa cada base nitrogenada del ADN.
+## Herramientas
 
-Se sabrá si un humano es mutante, si se encuentra **MAS DE UNA SECUENCIA** de cuatro letras iguales, de forma oblicua, horizontal o vertical.
+✅ Java <br/>
+✅ Spring Boot <br/>
+✅ H2 Database <br/>
+✅ Render <br/>
+✅ Docker <br/>
 
-Las filas de la matriz a verificar se ingresan por teclado.
 
-Ejemplo de input: '**ATCGTA**' (esto equivale a una fila de la matriz)
+## Instrucciones
 
-Una vez cargada correctamente la misma, se aplica una función que verifica si hay presencia en la matriz de mutantes o no y se devuelve el resultado al usuario en base a eso.
+**1)** Para utilizar la aplicación utilizaremos algún programa de peticiones (como Postman) utilizando el deploy obtenido con Render: https://camachotomas-parcial-backend.onrender.com. <br/>
 
-## Ejecución
+**2)** Agregaremos el path correspondiente a la petición que se quiera hacer: <br/>
 
-El proyecto ha sido deployado a Render y puede ser accedido mediante el siguiente link:
-
-https://parcial-magneto.onrender.com
-
-### Endpoints
-
-- **POST** /mutant - Recibe un JSON con la matriz de ADN a verificar. Ejemplo:
-
+   **2.1)** POST: agregar el path '/mutant' acompañado de un Body como el siguiente: <br/>
+   
 ```json
 {
     "dna": [
-        "ATGCGA",
-        "CAGTGC",
-        "TTATGT",
-        "AGAAGG",
-        "CCCCTA",
-        "TCACTG"
-    ]
-}
-```
-- **GET** /stats - Devuelve un JSON con la cantidad de mutantes y humanos verificados. Ejemplo:
-
-```json
-{
-    "count_mutant_dna": 40,
-    "count_human_dna": 100,
-    "ratio": 0.4
-}
-```
-
-## Ejemplos de ADN
-
-Ejemplo de matriz **MUTANTE**:
-
-```json
-{
-    "dna": [
-      "ATGCGA",
-      "CAGTGC",
-      "TTATGT",
-      "AGAAAG",
-      "CCCCTA",
-      "TCACTG"
+        "AAAA",
+        "CCCC",
+        "TCAG",
+        "GGTC"
     ]
 }
 ```
 
-Ejemplo de matriz **NO MUTANTE**:
+Se obtendrá la respuesta de si es o no mutante, y se agregará a la base de datos
+
+   **2.2)** GET: agregar el path '/stats'. Se obtendrá la cantidad de mutantes, la cantidad de humanos, y el ratio. <br/>
+
+   
+
+
+
+## Otros ejemplos de ADN
+
+**Mutantes**:
 
 ```json
 {
     "dna": [
-      "ATGGTG",
-      "GTCTTA",
-      "AATTGG",
-      "ACTAGT",
-      "GGATTC", 
-      "AGGCAA"
+        "TGAC",
+        "AGCC",
+        "TGAC",
+        "GGTC"
     ]
 }
 ```
 
-## Pruebas Unitarias
 
-Se incluyen casos de pruebas contemplando todos los patrones posibles (en filas, columnas y diagonales).
+```json
+{
+    "dna": [
+        "TCGGGTGAT",
+        "TGATCCTTT",
+        "TACGAGTGA",
+        "AAATGTACG",
+        "ACGAGTGCT",
+        "AGACACATG",
+        "GAATTCCAA",
+        "ACTACGACC",
+        "TGAGTATCC"
+    ]
+}
+```
+
+
+**No Mutantes**:
+
+```json
+{
+    "dna": [
+        "TGAC",
+        "ATCC",
+        "TAAG",
+        "GGTC"
+    ]
+}
+```
+
+```json
+{
+    "dna": [
+        "ATGATG",
+        "GTCTTA",
+        "AATTGG",
+        "ACTAGT",
+        "GGATTC",
+        "AGGCAA"
+    ]
+}
+```
+
+## Ver la base de datos con H2
+
+Levantar la base de datos con: https://camachotomas-parcial-backend.onrender.com/h2-console/ <br/>
+
+JDBC: jdbc:h2:mem:./testdb
+
+
+## Pruebas con JMeter y Diagramas de Secuencia
